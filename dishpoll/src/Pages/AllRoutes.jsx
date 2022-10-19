@@ -1,5 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import Login from "./Login";
+import PollData from "./PollData";
 import Result from "./Result";
 
 const AllRoutes = () => {
