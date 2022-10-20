@@ -10,3 +10,5 @@ export const getDishData = () => (dispatch) => {
     )
     .catch((err) => dispatch({ type: types.GET_DISH_DATA_FAILURE }));
 };
+
+

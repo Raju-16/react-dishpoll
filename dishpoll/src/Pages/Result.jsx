@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Result = () => {
-  return <div>Result</div>;
+  const [selectionData, setSelectionData] = useState("")
+
+
+  return <div>
+    
+  </div>;
 };
 
 export default Result;
