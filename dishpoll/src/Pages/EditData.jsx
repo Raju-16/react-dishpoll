@@ -1,43 +1,49 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { getDishData } from "../Redux/AppReducer/action";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Vote = () => {
-  const dispatch = useDispatch();
   const [firstChoice, setFirstChoice] = useState("");
   const [seconedChoice, setSeconedChoice] = useState("");
   const [thirdChoice, setThirdChoice] = useState("");
   const dish = useSelector((state) => state.AppReducer.dish);
   const loggedInUser = useSelector((state) => state.AuthReducer.loggedInUser);
-  const navigate = useNavigate();
-  console.log("Dish", dish)
-
-  if (firstChoice && seconedChoice && thirdChoice) {
-    console.log(firstChoice, seconedChoice, thirdChoice);
-  }
+  const [votedData, setVotedData] = useState(
+    JSON.parse(localStorage.getItem("allVotedData")) || []
+  );
+  // console.log("votedData", votedData);
+  // console.log("dishhhh", dish);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    let userData = JSON.parse(localStorage.getItem("allVotedData")) || [];
-    let indivisualData = {
-      id: loggedInUser.id,
-      [firstChoice]: 30,
-      [seconedChoice]: firstChoice === seconedChoice ? 30 : 20,
-      [thirdChoice]: seconedChoice === thirdChoice ? 20 : firstChoice === thirdChoice ? 30 : 10,
-    };
 
-    userData.push(indivisualData);
-    localStorage.setItem("allVotedData", JSON.stringify(userData));
-    localStorage.setItem("userSelection", JSON.stringify(indivisualData));
-    navigate("/result", { replace: true });
+    if (votedData && loggedInUser) {
+      console.log("I am innerside");
+      let editVote = [];
+      const user = votedData.filter((ele) => {
+        if (ele.id === loggedInUser.id) {
+          let selectedData = {};
+          selectedData = {
+            id: loggedInUser.id,
+            [firstChoice]: 30,
+            [seconedChoice]: firstChoice === seconedChoice ? 30 : 20,
+            [thirdChoice]:
+              seconedChoice === thirdChoice
+                ? 20
+                : firstChoice === thirdChoice
+                ? 30
+                : 10,
+          };
+          console.log("selectedData", selectedData);
+          editVote.push(selectedData);
+          localStorage.setItem("userSelection", JSON.stringify(selectedData));
+        } else {
+          editVote.push(ele);
+        }
+      });
+      localStorage.setItem("allVotedData", JSON.stringify(editVote));
+    }
+    setVotedData(JSON.parse(localStorage.getItem("allVotedData")));
   };
-
-  useEffect(() => {
-
-    dispatch(getDishData());
-
-  }, [dish.length]);
 
   return (
     <div>
@@ -80,7 +86,7 @@ const Vote = () => {
               );
             })}
         </select>
-        <input type="submit" value="Vote" />
+        <input type="submit" value="Edit Your Data" />
       </form>
     </div>
   );

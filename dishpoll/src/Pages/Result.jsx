@@ -1,12 +1,19 @@
 import React, { useState } from "react";
+import EditData from "./EditData";
 
 const Result = () => {
-  const [selectionData, setSelectionData] = useState("")
+  // const allVotedData =  
 
-
-  return <div>
-    
-  </div>;
+  return (
+    <div style={{ display: "flex" }}>
+      <div>
+        <p>raju</p>
+      </div>
+      <div >
+        <EditData />
+      </div>
+    </div>
+  );
 };
 
 export default Result;

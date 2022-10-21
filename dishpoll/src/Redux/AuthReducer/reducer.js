@@ -1,7 +1,7 @@
 import * as types from "./actionType";
 
 const initialState = {
-  loggedInUser: [],
+  loggedInUser: {},
   isLoading: false,
   isError: false,
 };

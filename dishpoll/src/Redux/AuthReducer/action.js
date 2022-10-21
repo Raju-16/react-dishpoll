@@ -6,7 +6,7 @@ export const postUserData = (params) => (dispatch) => {
   return axios
     .post("http://localhost:8080/data", params)
     .then((res) => {
-    //   console.log(res);
+      console.log("RES", res.data);
       dispatch({ type: types.POST_DATA_SUCCESS, payload: res.data });
       return types.POST_DATA_SUCCESS;
     })
