@@ -132,6 +132,7 @@ const Result = () => {
   return (
     <div className="resultMainDiv">
       <div className="resultTextDiv">
+        <h1>Poll Reuslt</h1>
         {result &&
           result.map((ele) => {
             return (

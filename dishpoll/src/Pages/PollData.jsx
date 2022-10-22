@@ -16,8 +16,8 @@ const PollData = () => {
   }, [dish, dispatch]);
 
   return (
-    <div style={{ display: "flex" }}>
-      <div className="PollMain">
+    <div className="pollMainDiv">
+      <div className="pollDiv">
         {dish.length > 0 &&
           dish.map((ele) => {
             return <DishCard dish={ele} key={ele.id} />;
