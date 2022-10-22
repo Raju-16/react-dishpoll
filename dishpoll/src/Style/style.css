@@ -1,9 +1,154 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .PollMain {
-  width: 75%;
-  border: 1px solid yellow;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 25;
+  gap: 25px;
   justify-content: space-around;
   margin: auto;
+  border: 1px solid rgba(14, 13, 13, 0.2);
+}
+
+.PollMain > div {
+  border: 0.5px solid rgb(0, 0, 0, 0.1);
+  padding: 2%;
+}
+
+#voteDiv {
+  width: 28%;
+  border: 0.5px solid rgb(32, 32, 32, 0.2);
+  height: 100vh;
+}
+
+.resultMainDiv {
+  display: flex;
+}
+
+/* vote page css */
+#voteMainDiv {
+  border: 1px solid rgb(2, 168, 2, 0.2);
+  height: 100vh;
+}
+
+#voteForm > select {
+  font-size: 17px;
+  padding: 0px 5px;
+  border: 0px;
+  outline: 0px;
+  border-bottom: 1px solid rgb(7, 153, 56);
+}
+
+#voteForm > select > option {
+  background-color: rgb(7, 153, 56);
+}
+
+#voteForm > input {
+  width: 240px;
+  font-size: 17px;
+  background-color: rgb(7, 153, 56);
+  border: none;
+  padding: 0px 14px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: white;
+}
+
+/* Login Page Css */
+
+.loginMainDiv {
+  border: 1px solid transparent;
+  height: 100vh;
+}
+
+#loginForm {
+  border: 1px solid rgb(0, 0, 0, 0.1);
+  width: 50%;
+  height: 55%;
+  margin: auto;
+  margin-top: 10%;
+  padding-top: 3%;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+
+#loginForm > input {
+  font-size: 20px;
+  border: 1px solid rgb(0, 0, 0, 0.1);
+  padding: 5px;
+  width: 70%;
+  margin: auto;
+  height: 25px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid rgb(153, 7, 39);
+}
+
+#loginForm > #submit {
+  background-color: rgb(7, 153, 56);
+  width: 71.5%;
+  margin-top: 5px;
+  color: white;
+  height: 35px;
+}
+
+/* DishCard Css part */
+
+.dishCardDiv {
+  background-color: rgb(181, 247, 203);
+}
+
+.dishCardDiv > #textDiv {
+  background-color: white;
+  padding: 5px 5px;
+  background-color: rgb(181, 250, 205);
+}
+
+.dishCardDiv > #textDiv > .firstPara {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Result page Css */
+
+.resultTextDiv {
+  width: 75%;
+  border: 1px solid transparent;
+}
+
+#resultSelectionDiv {
+  border: 1px solid rgb(134, 241, 134);
+  width: 25%;
+}
+
+#resultForm {
+  text-align: auto;
+  height: 100vh;
+}
+
+#resultForm > select {
+  font-size: 17px;
+  padding: 0px 5px;
+  border: 0px;
+  outline: 0px;
+  width: 240px;
+  border-bottom: 1px solid rgb(7, 153, 56);
+}
+
+#resultForm > input {
+  width: 240px;
+  font-size: 17px;
+  background-color: rgb(7, 153, 56);
+  border: none;
+  padding: 0px 14px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: white;
+}
+
+#resultForm > select > option {
+  background-color: rgb(7, 153, 56);
 }

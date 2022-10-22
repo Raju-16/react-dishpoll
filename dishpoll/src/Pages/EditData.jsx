@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const Vote = () => {
@@ -10,6 +10,11 @@ const Vote = () => {
   const [votedData, setVotedData] = useState(
     JSON.parse(localStorage.getItem("allVotedData")) || []
   );
+  const [finalScore, setFinalScore] = useState();
+  const [decresing, setDecresing] = useState();
+  const [favDish, setFavDish] = useState([]);
+  const [result, setResult] = useState();
+  console.log("finalScore", finalScore);
   // console.log("votedData", votedData);
   // console.log("dishhhh", dish);
 
@@ -17,9 +22,8 @@ const Vote = () => {
     e.preventDefault();
 
     if (votedData && loggedInUser) {
-      console.log("I am innerside");
       let editVote = [];
-      const user = votedData.filter((ele) => {
+      votedData.filter((ele) => {
         if (ele.id === loggedInUser.id) {
           let selectedData = {};
           selectedData = {
@@ -33,8 +37,9 @@ const Vote = () => {
                 ? 30
                 : 10,
           };
-          console.log("selectedData", selectedData);
+          // console.log("selectedData", selectedData);
           editVote.push(selectedData);
+
           localStorage.setItem("userSelection", JSON.stringify(selectedData));
         } else {
           editVote.push(ele);
@@ -44,6 +49,75 @@ const Vote = () => {
     }
     setVotedData(JSON.parse(localStorage.getItem("allVotedData")));
   };
+
+  useEffect(() => {
+    const data = {};
+    votedData.length &&
+      votedData.map((ele) => {
+        for (const [key, value] of Object.entries(ele)) {
+          if (key !== "id") {
+            // {
+            //   data[key] === data[key] ? data[key] + value : value;
+            // }
+            if (data[key] === undefined) {
+              data[key] = value;
+            } else {
+              data[key] += value;
+            }
+          }
+        }
+      });
+    setFinalScore(data);
+  }, [votedData]);
+
+  useEffect(() => {
+    if (finalScore) {
+      let sortData = [];
+      for (var dish in finalScore) {
+        sortData.push([dish, finalScore[dish]]);
+      }
+      sortData.sort(function (a, b) {
+        return b[1] - a[1];
+      });
+      // console.log("sortData", sortData);/
+      setDecresing(sortData);
+    }
+  }, [finalScore]);
+
+  useEffect(() => {
+    let favFood = JSON.parse(localStorage.getItem("userSelection"));
+    let favFoodArr = [];
+    for (let key in favFood) {
+      if (key !== "id") {
+        favFoodArr.push(key);
+      }
+    }
+    setFavDish(favFoodArr);
+  }, [decresing]);
+
+  useEffect(() => {
+    let newArr = [];
+
+    if (decresing && favDish) {
+      for (let i = 0; i < decresing.length; i++) {
+        var condition = true;
+        for (var j = 0; j < favDish.length; j++) {
+          if (decresing[i][0] === favDish[j]) {
+            newArr.push("USER VOTE", [decresing[i][0], decresing[i][1]]);
+            condition = false;
+            break;
+          } else {
+            condition = true;
+            continue;
+          }
+        }
+        if (!condition) {
+          newArr.push([decresing[i][0], decresing[i][1]]);
+        }
+      }
+    }
+    setResult(newArr);
+  }, [decresing, favDish]);
 
   return (
     <div>

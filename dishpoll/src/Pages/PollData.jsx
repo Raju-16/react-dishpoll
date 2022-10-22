@@ -23,7 +23,7 @@ const PollData = () => {
             return <DishCard dish={ele} key={ele.id} />;
           })}
       </div>
-      <div>
+      <div id="voteDiv">
         <Vote />
       </div>
     </div>

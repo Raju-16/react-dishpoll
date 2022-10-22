@@ -2,10 +2,12 @@ import React from "react";
 
 const DishCard = ({ dish }) => {
   return (
-    <div>
+    <div className="dishCardDiv">
       <img src={dish.image} alt="Dish" />
-      <p>{dish.dishName}</p>
-      <p>{dish.description}</p>
+      <div id="textDiv">
+        <p className="firstPara">{dish.dishName}</p>
+        <p className="secondPara">{dish.description}</p>
+      </div>
     </div>
   );
 };

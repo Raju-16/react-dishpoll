@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getDishData } from "../Redux/AppReducer/action";
+import "../Style/style.css"
 
 const Vote = () => {
   const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const Vote = () => {
   const dish = useSelector((state) => state.AppReducer.dish);
   const loggedInUser = useSelector((state) => state.AuthReducer.loggedInUser);
   const navigate = useNavigate();
-  console.log("Dish", dish)
+  console.log("Dish", dish);
 
   if (firstChoice && seconedChoice && thirdChoice) {
     console.log(firstChoice, seconedChoice, thirdChoice);
@@ -24,7 +25,12 @@ const Vote = () => {
       id: loggedInUser.id,
       [firstChoice]: 30,
       [seconedChoice]: firstChoice === seconedChoice ? 30 : 20,
-      [thirdChoice]: seconedChoice === thirdChoice ? 20 : firstChoice === thirdChoice ? 30 : 10,
+      [thirdChoice]:
+        seconedChoice === thirdChoice
+          ? 20
+          : firstChoice === thirdChoice
+          ? 30
+          : 10,
     };
 
     userData.push(indivisualData);
@@ -34,14 +40,13 @@ const Vote = () => {
   };
 
   useEffect(() => {
-
     dispatch(getDishData());
-
   }, [dish.length]);
 
   return (
-    <div>
-      <form onSubmit={handleOnSubmit}>
+    <div id="voteMainDiv">
+      <h2>Vote Your Choice</h2>
+      <form id="voteForm" onSubmit={handleOnSubmit}>
         <select id="firstDish" onChange={(e) => setFirstChoice(e.target.value)}>
           <option value="">First Priority</option>
           {dish.length > 0 &&
@@ -53,6 +58,7 @@ const Vote = () => {
               );
             })}
         </select>
+        <br />
         <br />
         <select
           id="secondDish"
@@ -69,6 +75,7 @@ const Vote = () => {
             })}
         </select>
         <br />
+        <br />
         <select id="thirdDish" onChange={(e) => setThirdChoice(e.target.value)}>
           <option value="">Third Priority</option>
           {dish.length > 0 &&
@@ -80,6 +87,8 @@ const Vote = () => {
               );
             })}
         </select>
+        <br />
+        <br />
         <input type="submit" value="Vote" />
       </form>
     </div>
