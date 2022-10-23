@@ -152,7 +152,7 @@
   color: white;
 }
 
-#voteForm > input {
+#voteForm > input:hover {
   cursor: pointer;
   font-size: 20px;
   background-color: rgb(41, 243, 108);
@@ -346,12 +346,13 @@
   font-weight: 500;
   border-radius: 4px;
   border: none;
-  background-color: white;
+  background-color: rgb(90, 192, 6);
+  color: white;
 }
 
 #homeMainDiv > a > button:hover{
   cursor: pointer;
-  background-color: rgb(211, 206, 206);
+  background-color: rgb(122, 250, 36);
   color: black;
 }
 

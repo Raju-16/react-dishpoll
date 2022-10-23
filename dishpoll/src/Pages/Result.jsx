@@ -25,7 +25,13 @@ const Result = () => {
   const handleOnSubmit = (e) => {
     e.preventDefault();
 
-    if (votedData && loggedInUser) {
+    if (
+      votedData &&
+      loggedInUser &&
+      firstChoice !== "" &&
+      seconedChoice !== "" &&
+      thirdChoice !== ""
+    ) {
       let editVote = [];
       votedData.filter((ele) => {
         if (ele.id === loggedInUser.id) {
@@ -50,6 +56,8 @@ const Result = () => {
         }
       });
       localStorage.setItem("allVotedData", JSON.stringify(editVote));
+    } else {
+      alert("Choose all the Edit Section");
     }
     setVotedData(JSON.parse(localStorage.getItem("allVotedData")));
   };
@@ -115,7 +123,7 @@ const Result = () => {
           }
         }
         if (condition) {
-          newArr.push("OTHER'S VOTE", [decresing[i][0], decresing[i][1]]);
+          newArr.push(["OTHER'S VOTE", decresing[i][0], decresing[i][1]]);
         }
       }
     }
@@ -152,7 +160,7 @@ const Result = () => {
               id="firstDish"
               onChange={(e) => setFirstChoice(e.target.value)}
             >
-              <option disabled value="">First Priority</option>
+              <option value="">First Priority</option>
               {dish.length > 0 &&
                 dish.map((ele) => {
                   return (
@@ -168,7 +176,7 @@ const Result = () => {
               id="secondDish"
               onChange={(e) => setSeconedChoice(e.target.value)}
             >
-              <option disabled value="">Second Priority</option>
+              <option value="">Second Priority</option>
               {dish.length > 0 &&
                 dish.map((ele) => {
                   return (
@@ -184,7 +192,7 @@ const Result = () => {
               id="thirdDish"
               onChange={(e) => setThirdChoice(e.target.value)}
             >
-              <option disabled value="">Third Priority</option>
+              <option value="">Third Priority</option>
               {dish.length > 0 &&
                 dish.map((ele) => {
                   return (

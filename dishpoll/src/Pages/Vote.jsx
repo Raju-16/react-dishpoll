@@ -33,10 +33,14 @@ const Vote = () => {
           : 10,
     };
 
-    userData.push(indivisualData);
-    localStorage.setItem("allVotedData", JSON.stringify(userData));
-    localStorage.setItem("userSelection", JSON.stringify(indivisualData));
-    navigate("/result", { replace: true });
+    if (firstChoice === "" || seconedChoice === "" || thirdChoice === "") {
+      alert("Fill all the choices");
+    } else if (firstChoice != "" && seconedChoice != "" && thirdChoice != "") {
+      userData.push(indivisualData);
+      localStorage.setItem("allVotedData", JSON.stringify(userData));
+      localStorage.setItem("userSelection", JSON.stringify(indivisualData));
+      navigate("/result", { replace: true });
+    }
   };
 
   useEffect(() => {
@@ -48,9 +52,7 @@ const Vote = () => {
       <h2>Vote Your Choice</h2>
       <form id="voteForm" onSubmit={handleOnSubmit}>
         <select id="firstDish" onChange={(e) => setFirstChoice(e.target.value)}>
-          <option disabled value="">
-            First Priority
-          </option>
+          <option value="">First Priority</option>
           {dish.length > 0 &&
             dish.map((ele) => {
               return (
@@ -66,9 +68,7 @@ const Vote = () => {
           id="secondDish"
           onChange={(e) => setSeconedChoice(e.target.value)}
         >
-          <option disabled value="">
-            Second Priority
-          </option>
+          <option value="">Second Priority</option>
           {dish.length > 0 &&
             dish.map((ele) => {
               return (
@@ -81,9 +81,7 @@ const Vote = () => {
         <br />
         <br />
         <select id="thirdDish" onChange={(e) => setThirdChoice(e.target.value)}>
-          <option disabled value="">
-            Third Priority
-          </option>
+          <option value="">Third Priority</option>
           {dish.length > 0 &&
             dish.map((ele) => {
               return (
