@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Navbar from "../Components/Navbar";
 import { getDishData } from "../Redux/AppReducer/action";
 import "../Style/style.css";
 
@@ -130,73 +131,76 @@ const Result = () => {
   }, [dish, dispatch]);
 
   return (
-    <div className="resultMainDiv">
-      <div className="resultTextDiv">
-        <h1>Poll Reuslt</h1>
-        {result &&
-          result.map((ele) => {
-            return (
-              <h3>
-                {ele[0]} {ele[1]} {ele[2]}
-              </h3>
-            );
-          })}
+    <>
+      <Navbar />
+      <div className="resultMainDiv">
+        <div className="resultTextDiv">
+          <h1>Poll Reuslt</h1>
+          {result &&
+            result.map((ele) => {
+              return (
+                <h3>
+                  {ele[0]} {ele[1]} {ele[2]}
+                </h3>
+              );
+            })}
+        </div>
+        <div id="resultSelectionDiv">
+          <h1>Edit Your Choice</h1>
+          <form id="resultForm" onSubmit={handleOnSubmit}>
+            <select
+              id="firstDish"
+              onChange={(e) => setFirstChoice(e.target.value)}
+            >
+              <option value="">First Priority</option>
+              {dish.length > 0 &&
+                dish.map((ele) => {
+                  return (
+                    <option value={ele.dishName} key={ele.id}>
+                      {ele.dishName}
+                    </option>
+                  );
+                })}
+            </select>
+            <br />
+            <br />
+            <select
+              id="secondDish"
+              onChange={(e) => setSeconedChoice(e.target.value)}
+            >
+              <option value="">Second Priority</option>
+              {dish.length > 0 &&
+                dish.map((ele) => {
+                  return (
+                    <option value={ele.dishName} key={ele.id}>
+                      {ele.dishName}
+                    </option>
+                  );
+                })}
+            </select>
+            <br />
+            <br />
+            <select
+              id="thirdDish"
+              onChange={(e) => setThirdChoice(e.target.value)}
+            >
+              <option value="">Third Priority</option>
+              {dish.length > 0 &&
+                dish.map((ele) => {
+                  return (
+                    <option value={ele.dishName} key={ele.id}>
+                      {ele.dishName}
+                    </option>
+                  );
+                })}
+            </select>
+            <br />
+            <br />
+            <input type="submit" value="Edit Your Data" />
+          </form>
+        </div>
       </div>
-      <div id="resultSelectionDiv">
-        <h1>Edit Your Choice</h1>
-        <form id="resultForm" onSubmit={handleOnSubmit}>
-          <select
-            id="firstDish"
-            onChange={(e) => setFirstChoice(e.target.value)}
-          >
-            <option value="">First Priority</option>
-            {dish.length > 0 &&
-              dish.map((ele) => {
-                return (
-                  <option value={ele.dishName} key={ele.id}>
-                    {ele.dishName}
-                  </option>
-                );
-              })}
-          </select>
-          <br />
-          <br />
-          <select
-            id="secondDish"
-            onChange={(e) => setSeconedChoice(e.target.value)}
-          >
-            <option value="">Second Priority</option>
-            {dish.length > 0 &&
-              dish.map((ele) => {
-                return (
-                  <option value={ele.dishName} key={ele.id}>
-                    {ele.dishName}
-                  </option>
-                );
-              })}
-          </select>
-          <br />
-          <br />
-          <select
-            id="thirdDish"
-            onChange={(e) => setThirdChoice(e.target.value)}
-          >
-            <option value="">Third Priority</option>
-            {dish.length > 0 &&
-              dish.map((ele) => {
-                return (
-                  <option value={ele.dishName} key={ele.id}>
-                    {ele.dishName}
-                  </option>
-                );
-              })}
-          </select>
-          <br />
-          <br />
-          <input type="submit" value="Edit Your Data" />
-        </form>
-      </div>
-    </div>
+    </>
   );
 };
 

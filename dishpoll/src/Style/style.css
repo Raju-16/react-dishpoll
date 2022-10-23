@@ -49,6 +49,13 @@ body {
     background-color: red;
     color: green;
   }
+  #div1 {
+    width: 60%;
+  }
+
+  #div2 {
+    width: 40%;
+  }
 }
 
 @media (min-width: 387px) and (max-width: 720px) {
@@ -69,6 +76,13 @@ body {
     margin: auto;
     width: 90%;
   }
+  #div1 {
+    width: 65%;
+  }
+
+  #div2 {
+    width: 35%;
+  }
 }
 
 @media (min-width: 721px) and (max-width: 1024px) {
@@ -83,6 +97,25 @@ body {
     margin: auto;
     width: 90%;
   }
+  #div1 {
+    width: 70%;
+  }
+
+  #div2 {
+    width: 29%;
+  }
+  /* #div1 {
+    width: 85%;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  #div2 {
+    width: 15%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  } */
 }
 
 /* vote page css */
@@ -227,5 +260,31 @@ body {
   background-color: rgb(181, 247, 203);
 }
 
-
 /* navbar css page */
+#mainNavbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  background-color: rgb(7, 153, 56);
+  color: white;
+  font-size: 20px;
+}
+#div1 {
+  width: 85%;
+  text-align: left;
+  font-weight: 600;
+}
+
+#div2 {
+  width: 15%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 15%;
+}
+#div2 > a {
+  text-decoration: none;
+  color: white;
+}
