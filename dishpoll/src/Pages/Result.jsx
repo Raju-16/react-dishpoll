@@ -115,7 +115,7 @@ const Result = () => {
           }
         }
         if (condition) {
-          newArr.push([decresing[i][0], decresing[i][1]]);
+          newArr.push("OTHER'S VOTE", [decresing[i][0], decresing[i][1]]);
         }
       }
     }
@@ -135,11 +135,11 @@ const Result = () => {
       <Navbar />
       <div className="resultMainDiv">
         <div className="resultTextDiv">
-          <h1>Poll Reuslt</h1>
+          <h1>Poll Results</h1>
           {result &&
             result.map((ele) => {
               return (
-                <h3>
+                <h3 key={ele[1]}>
                   {ele[0]} {ele[1]} {ele[2]}
                 </h3>
               );

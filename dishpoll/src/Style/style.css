@@ -1,165 +1,50 @@
-body {
-  margin: 0;
-  padding: 0;
+* {
+  /* margin: 0;
+  padding: 0; */
   box-sizing: border-box;
 }
-.pollMainDiv {
+
+/* ============================== */
+/* Navbar  Css */
+/* ============================== */
+
+#mainNavbar {
   width: 100%;
   display: flex;
-  border: 1px solid transparent;
-}
-
-.pollDiv {
-  width: 70%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  justify-content: space-around;
-  margin: auto;
-  border: 1px solid rgba(14, 13, 13, 0.2);
-}
-
-.pollDiv > div {
-  border: 0.5px solid rgb(0, 0, 0, 0.1);
-  padding: 2%;
-  padding-top: 15px;
-}
-
-.pollDiv > img {
-  width: 90%;
-}
-
-@media (max-width: 386px) {
-  .pollDiv {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    justify-content: center;
-    gap: 20px;
-    width: 70%;
-  }
-  .dishCardDiv > img {
-    margin: auto;
-    width: 90%;
-  }
-  #voteMainDiv > h2 {
-    font-size: 17px;
-  }
-  #loginForm {
-    width: 95%;
-    background-color: red;
-    color: green;
-  }
-  #div1 {
-    width: 60%;
-  }
-
-  #div2 {
-    width: 40%;
-  }
-}
-
-@media (min-width: 387px) and (max-width: 720px) {
-  #loginForm {
-    width: 70%;
-    border: 1px solid rgb(0, 0, 0, 0.1);
-    background-color: yellow;
-    color: green;
-  }
-  .pollDiv {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    justify-content: center;
-    gap: 35px;
-    width: 60%;
-  }
-  .dishCardDiv > img {
-    margin: auto;
-    width: 90%;
-  }
-  #div1 {
-    width: 65%;
-  }
-
-  #div2 {
-    width: 35%;
-  }
-}
-
-@media (min-width: 721px) and (max-width: 1024px) {
-  .pollDiv {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
-    gap: 30px;
-    width: 70%;
-  }
-  .dishCardDiv > img {
-    margin: auto;
-    width: 90%;
-  }
-  #div1 {
-    width: 70%;
-  }
-
-  #div2 {
-    width: 29%;
-  }
-  /* #div1 {
-    width: 85%;
-    text-align: left;
-    font-weight: 600;
-  }
-
-  #div2 {
-    width: 15%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  } */
-}
-
-/* vote page css */
-
-#voteDiv {
-  width: 30%;
-  border: 0.5px solid rgb(32, 32, 32, 0.2);
-  height: 100vh;
-}
-
-#voteMainDiv {
-  border: 1px solid rgb(2, 168, 2, 0.2);
-  height: 100vh;
-}
-
-#voteForm > select {
-  width: 80%;
-  font-size: 17px;
-  padding: 0px 5px;
-  border: 0px;
-  outline: 0px;
-  border-bottom: 1px solid rgb(195, 247, 195);
-}
-
-#voteForm > select > option {
-  background-color: rgb(181, 247, 203);
-}
-
-#voteForm > input {
-  width: 80%;
-  font-size: 17px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
   background-color: rgb(7, 153, 56);
-  border: none;
-  padding: 0px 14px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 2%;
+}
+#div1 {
+  width: 80%;
+  text-align: left;
+  font-weight: 600;
+}
+
+#div2 {
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#div2 > a {
+  text-decoration: none;
   color: white;
 }
 
+/* ============================== */
 /* Login Page Css */
+/* ============================== */
 
 .loginMainDiv {
   border: 1px solid transparent;
   height: auto;
+  width: 100%;
 }
 
 .loginMainDiv > #loginForm {
@@ -194,7 +79,75 @@ body {
   height: 35px;
 }
 
-/* DishCard Css part */
+/* ============================== */
+/* Vote Page Css */
+/* ============================== */
+
+.pollMainDiv {
+  width: 100%;
+  display: flex;
+  border: 1px solid transparent;
+}
+
+.pollDiv {
+  width: 69%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  justify-content: center;
+  margin: auto;
+  /* border: 1px solid rgba(14, 13, 13, 0.2); */
+}
+
+.pollDiv > div {
+  border: 0.5px solid rgb(0, 0, 0, 0.1);
+  padding: 2%;
+  padding-top: 15px;
+}
+
+.pollDiv > img {
+  width: 90%;
+}
+
+#voteDiv {
+  width: 28%;
+  border: 0.5px solid rgb(32, 32, 32, 0.2);
+  height: 100vh;
+}
+
+#voteMainDiv {
+  border: 1px solid rgb(2, 168, 2, 0.2);
+  height: 100vh;
+  width: 100%;
+}
+
+#voteForm > select {
+  width: 80%;
+  font-size: 17px;
+  padding: 0px 5px;
+  border: 0px;
+  outline: 0px;
+  border-bottom: 1px solid rgb(195, 247, 195);
+}
+
+#voteForm > select > option {
+  background-color: rgb(181, 247, 203);
+}
+
+#voteForm > input {
+  width: 80%;
+  font-size: 17px;
+  background-color: rgb(7, 153, 56);
+  border: none;
+  padding: 0px 14px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: white;
+}
+
+/* ============================== */
+/* DishCard Page Css */
+/* ============================== */
 
 .dishCardDiv {
   background-color: rgb(181, 247, 203);
@@ -215,20 +168,24 @@ body {
   font-weight: 600;
 }
 
-/* Result page Css */
+/* ============================== */
+/* Result Page Css */
+/* ============================== */
 
 .resultMainDiv {
   display: flex;
+  width: 100%;
+  overflow: hidden;
 }
 
 .resultTextDiv {
-  width: 75%;
+  width: 70%;
   border: 1px solid transparent;
 }
 
 #resultSelectionDiv {
   border: 1px solid rgb(134, 241, 134);
-  width: 25%;
+  width: 30%;
 }
 
 #resultForm {
@@ -237,16 +194,16 @@ body {
 }
 
 #resultForm > select {
+  width: 80%;
   font-size: 17px;
   padding: 0px 5px;
   border: 0px;
   outline: 0px;
-  width: 240px;
   border-bottom: 1px solid rgb(7, 153, 56);
 }
 
 #resultForm > input {
-  width: 240px;
+  width: 80%;
   font-size: 17px;
   background-color: rgb(7, 153, 56);
   border: none;
@@ -260,31 +217,95 @@ body {
   background-color: rgb(181, 247, 203);
 }
 
-/* navbar css page */
-#mainNavbar {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0px 20px;
-  background-color: rgb(7, 153, 56);
-  color: white;
-  font-size: 20px;
-}
-#div1 {
-  width: 85%;
-  text-align: left;
-  font-weight: 600;
+/* ============================== */
+/* Responsive work for all */
+/* ============================== */
+
+@media (min-width: 721px) and (max-width: 1024px) {
+  #div1 {
+    width: 70%;
+  }
+
+  #div2 {
+    width: 30%;
+  }
+
+  .pollMainDiv > .pollDiv {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    gap: 30px;
+    width: 70%;
+  }
+
+  .resultMainDiv {
+    width: 100%;
+  }
+  #resultSelectionDiv {
+    width: 25%;
+  }
+  .resultTextDiv {
+    width: 75%;
+  }
 }
 
-#div2 {
-  width: 15%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 15%;
+@media (min-width: 387px) and (max-width: 720px) {
+  .loginMainDiv > #loginForm {
+    width: 60%;
+  }
+  #div1 {
+    width: 65%;
+  }
+
+  #div2 {
+    width: 35%;
+  }
+  .pollMainDiv > .pollDiv {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: center;
+    gap: 35px;
+    width: 60%;
+  }
+
+  .resultTextDiv {
+    width: 65%;
+  }
+  #resultSelectionDiv {
+    width: 35%;
+  }
 }
-#div2 > a {
-  text-decoration: none;
-  color: white;
+
+@media (max-width: 386px) {
+  #div1 {
+    width: 60%;
+  }
+
+  #div2 {
+    width: 40%;
+  }
+
+  .loginMainDiv > #loginForm {
+    width: 95%;
+  }
+  .pollDiv {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: center;
+    gap: 20px;
+    width: 70%;
+  }
+
+  #voteMainDiv > h2 {
+    font-size: 17px;
+  }
+}
+
+/* ============================== */
+/* Home page css */
+/* ============================== */
+
+#homeMainDiv {
+  height: 100vh;
+  width: 100%;
 }
