@@ -70,4 +70,4 @@ https://github.com/Raju-16/react-dishpoll/tree/main/dishpoll
 
 
 ## Deploy Link :
-https://raju-dishvoting-food.netlify.app/login
+https://raju-dishvoting-food.netlify.app
