@@ -152,7 +152,7 @@ const Result = () => {
               id="firstDish"
               onChange={(e) => setFirstChoice(e.target.value)}
             >
-              <option value="">First Priority</option>
+              <option disabled value="">First Priority</option>
               {dish.length > 0 &&
                 dish.map((ele) => {
                   return (
@@ -168,7 +168,7 @@ const Result = () => {
               id="secondDish"
               onChange={(e) => setSeconedChoice(e.target.value)}
             >
-              <option value="">Second Priority</option>
+              <option disabled value="">Second Priority</option>
               {dish.length > 0 &&
                 dish.map((ele) => {
                   return (
@@ -184,7 +184,7 @@ const Result = () => {
               id="thirdDish"
               onChange={(e) => setThirdChoice(e.target.value)}
             >
-              <option value="">Third Priority</option>
+              <option disabled value="">Third Priority</option>
               {dish.length > 0 &&
                 dish.map((ele) => {
                   return (

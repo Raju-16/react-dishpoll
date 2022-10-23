@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getDishData } from "../Redux/AppReducer/action";
-import "../Style/style.css"
+import "../Style/style.css";
 
 const Vote = () => {
   const dispatch = useDispatch();
@@ -48,7 +48,9 @@ const Vote = () => {
       <h2>Vote Your Choice</h2>
       <form id="voteForm" onSubmit={handleOnSubmit}>
         <select id="firstDish" onChange={(e) => setFirstChoice(e.target.value)}>
-          <option value="">First Priority</option>
+          <option disabled value="">
+            First Priority
+          </option>
           {dish.length > 0 &&
             dish.map((ele) => {
               return (
@@ -64,7 +66,9 @@ const Vote = () => {
           id="secondDish"
           onChange={(e) => setSeconedChoice(e.target.value)}
         >
-          <option value="">Second Priority</option>
+          <option disabled value="">
+            Second Priority
+          </option>
           {dish.length > 0 &&
             dish.map((ele) => {
               return (
@@ -77,7 +81,9 @@ const Vote = () => {
         <br />
         <br />
         <select id="thirdDish" onChange={(e) => setThirdChoice(e.target.value)}>
-          <option value="">Third Priority</option>
+          <option disabled value="">
+            Third Priority
+          </option>
           {dish.length > 0 &&
             dish.map((ele) => {
               return (

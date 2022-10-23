@@ -79,6 +79,13 @@
   height: 35px;
 }
 
+#loginForm > #submit:hover {
+  cursor: pointer;
+  font-size: 22px;
+  background-color: rgb(41, 243, 108);
+  color: black;
+}
+
 /* ============================== */
 /* Vote Page Css */
 /* ============================== */
@@ -143,6 +150,13 @@
   padding-top: 5px;
   padding-bottom: 5px;
   color: white;
+}
+
+#voteForm > input {
+  cursor: pointer;
+  font-size: 20px;
+  background-color: rgb(41, 243, 108);
+  color: black;
 }
 
 /* ============================== */
@@ -211,6 +225,13 @@
   padding-top: 5px;
   padding-bottom: 5px;
   color: white;
+}
+
+#resultForm > input {
+  cursor: pointer;
+  font-size: 20px;
+  background-color: rgb(41, 243, 108);
+  color: black;
 }
 
 #resultForm > select > option {
@@ -309,3 +330,31 @@
   height: 100vh;
   width: 100%;
 }
+
+#homeMainDiv > img{
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+#homeMainDiv > a > button{
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  padding: 10px 40px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 4px;
+  border: none;
+  background-color: white;
+}
+
+#homeMainDiv > a > button:hover{
+  cursor: pointer;
+  background-color: rgb(211, 206, 206);
+  color: black;
+}
+
+
+
+
