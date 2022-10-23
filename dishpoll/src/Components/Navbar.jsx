@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div id="mainNavbar">
-      <div id="div1">Dish</div>
+      <div id="div1">
+        <Link to={"/"}>
+          <p>Dish</p>
+        </Link>
+      </div>
       <div id="div2">
         <Link to={"/polldata"}>
           <p>Poll</p>

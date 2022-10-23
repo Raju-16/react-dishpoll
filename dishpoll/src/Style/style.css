@@ -25,6 +25,11 @@
   font-weight: 600;
 }
 
+#div1 > a {
+  text-decoration: none;
+  color: white;
+}
+
 #div2 {
   width: 20%;
   display: flex;
@@ -227,7 +232,7 @@
   color: white;
 }
 
-#resultForm > input {
+#resultForm > input:hover {
   cursor: pointer;
   font-size: 20px;
   background-color: rgb(41, 243, 108);
@@ -331,13 +336,13 @@
   width: 100%;
 }
 
-#homeMainDiv > img{
+#homeMainDiv > img {
   height: 100vh;
   width: 100%;
   position: relative;
 }
 
-#homeMainDiv > a > button{
+#homeMainDiv > a > button {
   position: absolute;
   bottom: 5%;
   right: 5%;
@@ -350,12 +355,8 @@
   color: white;
 }
 
-#homeMainDiv > a > button:hover{
+#homeMainDiv > a > button:hover {
   cursor: pointer;
   background-color: rgb(122, 250, 36);
   color: black;
 }
-
-
-
-
